@@ -1,0 +1,22 @@
+{
+  "name": "react-native-calendar-ui-example",
+  "displayName": "CalendarUi Example",
+  "expo": {
+    "name": "react-native-calendar-ui-example",
+    "slug": "react-native-calendar-ui-example",
+    "description": "Example app for react-native-calendar-ui",
+    "privacy": "public",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
