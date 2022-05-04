@@ -143,5 +143,10 @@
         }
       ]
     ]
+  },
+  "dependencies": {
+    "moment": "^2.29.3",
+    "react-native-calendar-picker": "^7.1.2",
+    "react-native-uuid": "^2.0.1"
   }
 }
