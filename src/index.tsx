@@ -129,7 +129,6 @@ export function CalendarView(props: CalendarProps) {
     selectedRangeStartStyle,
     selectedRangeEndStyle,
     dayShape = 'circle',
-    selectMonthTitle = 'Select Month',
     selectYearTitle = 'Select Year',
     useLongMonths = false,
     useLongWeeks = false,
@@ -140,7 +139,6 @@ export function CalendarView(props: CalendarProps) {
     initialDate,
     scaleFactor,
     firstValue,
-    lastValue,
   } = props;
 
   return (
