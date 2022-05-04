@@ -225,9 +225,6 @@ export function CalendarView(props: CalendarProps) {
                 }),
               };
 
-              // save final_value in json as node
-              let final_value_json = JSON.stringify(final_value);
-
               return final_value;
             }),
           };
