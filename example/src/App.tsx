@@ -110,7 +110,7 @@ export default function App() {
               }}
             >
               <FlatListCustomized
-                hourArray={[`teste`, `teste01`]}
+                hourArray={true}
                 onPress={(item, index) => {
                   // you can do anything you want here
                 }}

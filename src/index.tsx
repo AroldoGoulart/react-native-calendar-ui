@@ -367,7 +367,7 @@ interface IFlatListCustomized {
   textNameDayMonthStyle: TextStyle;
   touchableOpacityStyle: ViewStyle;
   touchableTextStyle: TextStyle;
-  hourArray?: string[];
+  hourArray?: boolean;
 }
 
 export function FlatListCustomized(props: IFlatListCustomized) {
@@ -380,8 +380,41 @@ export function FlatListCustomized(props: IFlatListCustomized) {
     textNameWeekStyle,
     touchableTextStyle,
     touchableOpacityStyle,
-    hourArray = [],
+    hourArray = false,
   } = props;
+
+  let array_of_dates = [] as unknown as any;
+
+  let arrayHours = [
+    `00:00`,
+    `01:00`,
+    `02:00`,
+    `03:00`,
+    `04:00`,
+    `05:00`,
+    `06:00`,
+    `07:00`,
+    `08:00`,
+    `09:00`,
+    `10:00`,
+    `11:00`,
+    `12:00`,
+    `13:00`,
+    `14:00`,
+    `15:00`,
+    `16:00`,
+    `17:00`,
+    `18:00`,
+    `19:00`,
+    `20:00`,
+    `21:00`,
+    `22:00`,
+    `23:00`,
+  ];
+
+  if (hourArray) {
+    array_of_dates = arrayHours;
+  }
 
   return (
     <>
@@ -400,7 +433,7 @@ export function FlatListCustomized(props: IFlatListCustomized) {
       }
 
       <FlatList
-        data={hourArray ? hourArray : data ? data?.date_time : []}
+        data={array_of_dates ? array_of_dates : data ? data?.date_time : []}
         style={{
           ...flatListStyle,
         }}
@@ -437,14 +470,14 @@ export function FlatListCustomized(props: IFlatListCustomized) {
                   {
                     //@ts-ignore
                     getDayOfWeekName(
-                      hourArray.length <= 0 ? item.date : item,
-                      !(hourArray.length <= 0)
+                      array_of_dates.length <= 0 ? item.date : item,
+                      !(array_of_dates.length <= 0)
                     )
                   }
                 </Text>
               }
 
-              {hourArray && hourArray.length >= 0 ? null : (
+              {array_of_dates && array_of_dates.length >= 0 ? null : (
                 //@ts-ignore
                 <Text
                   style={{
