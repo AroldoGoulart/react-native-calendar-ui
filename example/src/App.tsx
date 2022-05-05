@@ -28,7 +28,7 @@ export default function App() {
     <>
       {true ? (
         <>
-          {false ? (
+          {true ? (
             //@ts-ignore
             <View
               style={{
@@ -100,7 +100,7 @@ export default function App() {
       ) : null}
 
       {
-        false ?
+        true ?
           (
             //@ts-ignore
             <View
@@ -110,6 +110,7 @@ export default function App() {
               }}
             >
               <FlatListCustomized
+                hourArray={[`teste`, `teste01`]}
                 onPress={(item, index) => {
                   // you can do anything you want here
                 }}

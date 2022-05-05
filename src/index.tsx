@@ -318,7 +318,10 @@ const getMonthNameAndDay = (date: Date) => {
   return lastMouth;
 };
 
-const getDayOfWeekName = (date: string) => {
+const getDayOfWeekName = (date: string, modeHours: boolean) => {
+  if (modeHours) {
+    return date;
+  }
   const d = new Date(date);
   return d.toLocaleString('en-US', { weekday: 'long' }).split(` `)[0];
 };
@@ -364,6 +367,7 @@ interface IFlatListCustomized {
   textNameDayMonthStyle: TextStyle;
   touchableOpacityStyle: ViewStyle;
   touchableTextStyle: TextStyle;
+  hourArray?: string[];
 }
 
 export function FlatListCustomized(props: IFlatListCustomized) {
@@ -376,6 +380,7 @@ export function FlatListCustomized(props: IFlatListCustomized) {
     textNameWeekStyle,
     touchableTextStyle,
     touchableOpacityStyle,
+    hourArray = [],
   } = props;
 
   return (
@@ -395,7 +400,7 @@ export function FlatListCustomized(props: IFlatListCustomized) {
       }
 
       <FlatList
-        data={data ? data?.date_time : []}
+        data={hourArray ? hourArray : data ? data?.date_time : []}
         style={{
           ...flatListStyle,
         }}
@@ -429,11 +434,17 @@ export function FlatListCustomized(props: IFlatListCustomized) {
                     ...textNameWeekStyle,
                   }}
                 >
-                  {getDayOfWeekName(item.date)}
+                  {
+                    //@ts-ignore
+                    getDayOfWeekName(
+                      hourArray.length <= 0 ? item.date : item,
+                      !(hourArray.length <= 0)
+                    )
+                  }
                 </Text>
               }
 
-              {
+              {hourArray && hourArray.length >= 0 ? null : (
                 //@ts-ignore
                 <Text
                   style={{
@@ -454,7 +465,7 @@ export function FlatListCustomized(props: IFlatListCustomized) {
                 >
                   {` ` + getMonthNameAndDay(new Date(item.date))}
                 </Text>
-              }
+              )}
 
               {
                 //@ts-ignore
