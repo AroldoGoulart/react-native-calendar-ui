@@ -5,22 +5,16 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react-native/no-inline-styles */
 
+//@ts-ignore
 import * as React from 'react';
 //@ts-ignore
-import {
-  ViewStyle,
-  TextStyle,
-  TextInput,
-  Text,
-  FlatList,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import { ViewStyle, TextStyle, TextInput, Text, FlatList, TouchableOpacity, View, } from 'react-native';
 //@ts-ignore
 
 //@ts-ignore
 import CalendarPicker from 'react-native-calendar-picker';
 
+//@ts-ignore
 import uuid from 'react-native-uuid';
 
 let months_short_default = [
@@ -367,7 +361,7 @@ interface IFlatListCustomized {
   textNameDayMonthStyle: TextStyle;
   touchableOpacityStyle: ViewStyle;
   touchableTextStyle: TextStyle;
-  hourArray?: boolean;
+  useHourArray?: boolean;
 }
 
 export function FlatListCustomized(props: IFlatListCustomized) {
@@ -380,7 +374,7 @@ export function FlatListCustomized(props: IFlatListCustomized) {
     textNameWeekStyle,
     touchableTextStyle,
     touchableOpacityStyle,
-    hourArray = false,
+    useHourArray,
   } = props;
 
   let array_of_dates = [] as unknown as any;
@@ -412,7 +406,7 @@ export function FlatListCustomized(props: IFlatListCustomized) {
     `23:00`,
   ];
 
-  if (hourArray) {
+  if (useHourArray) {
     array_of_dates = arrayHours;
   }
 
@@ -437,7 +431,7 @@ export function FlatListCustomized(props: IFlatListCustomized) {
         style={{
           ...flatListStyle,
         }}
-        renderItem={(value) => {
+        renderItem={(value: any) => {
           const { item } = value;
           return (
             //@ts-ignore
