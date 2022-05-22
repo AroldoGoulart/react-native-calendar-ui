@@ -353,14 +353,14 @@ const getDiferenceInDays = (date_estrutured: any): null | string => {
 
 interface IFlatListCustomized {
   data: any;
-  textStyle: TextStyle;
-  flatListStyle: ViewStyle;
+  textStyle?: TextStyle;
+  flatListStyle?: ViewStyle;
   onPress: (item: any, index: number) => void;
-  mainViewStyle: ViewStyle;
-  textNameWeekStyle: TextStyle;
-  textNameDayMonthStyle: TextStyle;
-  touchableOpacityStyle: ViewStyle;
-  touchableTextStyle: TextStyle;
+  mainViewStyle?: ViewStyle;
+  textNameWeekStyle?: TextStyle;
+  textNameDayMonthStyle?: TextStyle;
+  touchableOpacityStyle?: ViewStyle;
+  touchableTextStyle?: TextStyle;
   useHourArray?: boolean;
 }
 
